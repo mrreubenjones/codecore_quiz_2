@@ -1,10 +1,10 @@
 <h1>Support Requests</h1>
 
 <div class="search">
-  <%# form_tag '/search' %>
-    <%# text_field :search %>
-    <%# submit 'SEARCH' %>
-  <%# end %>
+  <%= form_tag(requests_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Requests" %>
+    <%= submit_tag "Search" %>
+  <% end %>
 </div>
 
 <%= paginate @requests %>
@@ -27,11 +27,11 @@
     <td><%= r.message %></td>
     <td>
       <%= link_to 'Not done', ''  %>
-      <%# if r.done? %>
-          <%# link_to "Done", done_request_path(@request), :method => :put %>
-      <%# else %>
-          <%# link_to "Not Done", done_request_path(@request), :method => :put %>
-      <%# end %>
+      <% if r.done? %>
+          <% link_to "Done", done_request_path(r), :method => :put %>
+      <% else %>
+          <% link_to "Not Done", done_request_path(r), :method => :put %>
+      <% end %>
     </td>
     <td>
       <%= link_to 'Edit', request_path(r) %>
