@@ -1,0 +1,49 @@
+<h1>Support Requests</h1>
+
+<div class="search">
+  <%# form_tag '/search' %>
+    <%# text_field :search %>
+    <%# submit 'SEARCH' %>
+  <%# end %>
+</div>
+
+<%= paginate @requests %>
+<%= page_entries_info @requests %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Message</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+<% @requests.each do |r| %>
+  <tr>
+    <td><%= r.name %></td>
+    <td><%= r.email %></td>
+    <td><%= r.department %></td>
+    <td><%= r.message %></td>
+    <td>
+      <%= link_to 'Not done', ''  %>
+      <%# if r.done? %>
+          <%# link_to "Done", done_request_path(@request), :method => :put %>
+      <%# else %>
+          <%# link_to "Not Done", done_request_path(@request), :method => :put %>
+      <%# end %>
+    </td>
+    <td>
+      <%= link_to 'Edit', request_path(r) %>
+      <%= link_to 'Delete', request_path(r),
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } %>
+      <%# <%= r.check_box :done %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= paginate @requests %>
+<%= page_entries_info @requests %>

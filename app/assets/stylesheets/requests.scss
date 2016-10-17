@@ -1,0 +1,31 @@
+// Place all the styles related to the requests controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding: 20px;
+}
+
+.row {
+  clear: left;
+}
+
+.label_column {
+  float: left;
+  width: 150px;
+}
+
+.content_column {
+  float: left;
+}
+
+.radio-group input {
+  float: left;
+  clear: left;
+}
+
+.radio-group label {
+  float: left;
+  font-weight: normal;
+}
+

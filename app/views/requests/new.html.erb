@@ -1,0 +1,41 @@
+<h1>Submit a Request</h1>
+
+<%# Use form_for when we're creating a form related to a rails model.
+    The first argument of the form_for must be an active record object
+    If the first argument is a new instance of the ActiveRecord class, (eg. Question.new) then the form will automatically send a POST request to the standard create action url which is in this case questions_path
+    %>
+<%= @request.errors.full_messages.join(', ' ) %>
+<%= form_for @request do |f| %>
+  <div class="row">
+    <div class="label_column"><%= f.label :name %></div>
+    <div class="content_column"><%= f.text_field :name %></div>
+  </div>
+
+  <div class="row">
+    <div class="label_column"><%= f.label :email %></div>
+    <div class="content_column"><%= f.text_field :email %></div>
+  </div>
+
+  <div class="row">
+    <div class="label_column"><label>Department</label></div>
+    <div class="content_column"><div class="radio-group">
+      <%= f.radio_button(:department, 'sales') %>
+      <%= f.label(:department_sales, 'Sales') %>
+      <%= f.radio_button(:department, 'marketing') %>
+      <%= f.label(:department_marketing, 'Marketing') %>
+      <%= f.radio_button(:department, 'technical') %>
+      <%= f.label(:department_technical, 'Technical') %>
+    </div></div>
+  </div>
+
+  <div class="row">
+    <div class="label_column"><%= f.label :message %></div>
+    <div class="content_column"><%= f.text_area :message %></div>
+  </div>
+
+  <div class="row">
+    <div class="label_column">&nbsp;</div>
+    <div class="content_column"><%= f.submit 'Send Request' %></div>
+  </div>
+
+<% end %>

@@ -1,0 +1,41 @@
+/*
+* Key modifications on the Skeleton css boilerplate
+* I'll merge stable mods into skeleton after time and testing
+* (Skeleton key, get it?)
+*/
+
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Grid
+- Base Styles
+- Typography
+- Links
+- Buttons
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+td {
+  vertical-align: top; }
+
+
+
+  /* Utilities
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.u-half-width {
+  width: 50%;
+  box-sizing: border-box;
+}
