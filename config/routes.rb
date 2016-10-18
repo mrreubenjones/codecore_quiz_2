@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :requests
   get '/' => 'home#index'
 
+  patch '/requests/:id/done_status' => 'requests#done', as: :done_status
 
-  resources :requests do
-  put :done, on: :member
-  end
 end

@@ -1,5 +1,10 @@
 <h1><%= @request.name %></h1>
-<p><%= @request.message %></p>
+<dl>
+  <dt>Email:</dt><dd><%= @request.email %></dd>
+  <dt>Department:</dt><dd><%= @request.department %></dd>
+  <dt>Message:</dt><dd><%= @request.message %></dd>
+</dl>
+
 <%= link_to 'edit', edit_request_path(@request) %>
 <%= link_to 'delete', request_path(@request),
                       method: :delete,

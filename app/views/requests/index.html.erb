@@ -26,11 +26,10 @@
     <td><%= r.department %></td>
     <td><%= r.message %></td>
     <td>
-      <%= link_to 'Not done', ''  %>
       <% if r.done? %>
-          <% link_to "Done", done_request_path(r), :method => :put %>
+          <%= link_to "Done", done_status_path(r), :method => :patch %>
       <% else %>
-          <% link_to "Not Done", done_request_path(r), :method => :put %>
+          <%= link_to "Not Done", done_status_path(r), :method => :patch %>
       <% end %>
     </td>
     <td>
