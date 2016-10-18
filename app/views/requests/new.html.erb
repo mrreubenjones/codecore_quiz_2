@@ -1,39 +1,5 @@
+<%= link_to '< Back to All Requests', requests_path %>
+
 <h1>Submit a Request</h1>
 
-<%= form_for @request do |f| %>
-  <div class="row">
-    <div class="label_column"><%= f.label :name %></div>
-    <div class="content_column"><%= f.text_field :name %></div>
-  </div>
-
-  <div class="row">
-    <div class="label_column"><%= f.label :email %></div>
-    <div class="content_column"><%= f.text_field :email %></div>
-  </div>
-
-  <div class="row">
-    <div class="label_column"><label>Department</label></div>
-    <div class="content_column"><div class="radio-group">
-      <%= f.radio_button(:department, 'sales') %>
-      <%= f.label(:department_sales, 'Sales') %>
-      <%= f.radio_button(:department, 'marketing') %>
-      <%= f.label(:department_marketing, 'Marketing') %>
-      <%= f.radio_button(:department, 'technical') %>
-      <%= f.label(:department_technical, 'Technical') %>
-    </div></div>
-  </div>
-
-  <div class="row">
-    <div class="label_column"><%= f.label :message %></div>
-    <div class="content_column"><%= f.text_area :message %></div>
-  </div>
-
-  <div class="row">
-    <div class="label_column">&nbsp;</div>
-    <div class="content_column">
-      <%= f.submit 'Send Request' %>
-      <div class="clear"><%= @request.errors.full_messages.join(', ' ) %></div>
-    </div>
-  </div>
-
-<% end %>
+<%= render 'request_form', { btn_label: 'Submit' } %>

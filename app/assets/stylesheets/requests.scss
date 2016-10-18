@@ -6,6 +6,25 @@ body {
   padding: 20px;
 }
 
+.new-request {
+  float: right;
+  margin: -70px 50px 0 0 ;
+}
+
+.new-request img {
+  position: relative;
+  top: 10px;
+  width: 36px;
+  margin: 0 0 0 20px;
+}
+
+.new-request a {
+  color: #aaa;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0;
+}
+
 // Utility classes
 .clear {
   clear: both;
@@ -15,13 +34,51 @@ body {
   text-align: right;
 }
 
+button.tag {
+  display: block;
+  height: auto;
+  background-color: #666;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 6px;
+  line-height: 1;
+
+}
+
+button.tag a {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+button.action {
+  display: block;
+  height: auto;
+  padding: 10px;
+  line-height: 1;
+}
+
+button.action a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
 
 // Positioning the index elements
+
 .summary {
+  float: left;
+  clear: left;
   margin: -20px 0 80px 0;
 }
 
+
+
 .pagination_group {
+  clear: left;
   margin: 20px 0;
 }
 

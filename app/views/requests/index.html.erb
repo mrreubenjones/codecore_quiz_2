@@ -1,31 +1,37 @@
 <h1>Support Requests</h1>
+<div class="new-request">
+  <%= link_to "#{image_tag("add_green.png")} New Request".html_safe, new_request_path %>
+</div>
+<div class="support-dashboard">
 
-<div class="search">
-  <%= form_tag(requests_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Requests" %>
-    <%= submit_tag "Search" %>
-  <% end %>
+  <div class="search">
+    <%= form_tag(requests_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Requests" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <table class="summary">
+    <tr>
+      <th>Department</th>
+      <th>Support Requests</th>
+    </tr>
+    <tr>
+      <td>Sales</td>
+      <td class="align-right"><%= @sales %></td>
+    </tr>
+    <tr>
+      <td>Marketing</td>
+      <td class="align-right"><%= @marketing %></td>
+    </tr>
+    <tr>
+      <td>Technical</td>
+      <td class="align-right"><%= @technical %></td>
+    </tr>
+  </table>
 </div>
 
 
-<table class="summary">
-  <tr>
-    <th>Department</th>
-    <th>Support Requests</th>
-  </tr>
-  <tr>
-    <td>Sales</td>
-    <td class="align-right"><%= @sales %></td>
-  </tr>
-  <tr>
-    <td>Marketing</td>
-    <td class="align-right"><%= @marketing %></td>
-  </tr>
-  <tr>
-    <td>Technical</td>
-    <td class="align-right"><%= @technical %></td>
-  </tr>
-</table>
 
 <div class="pagination_group">
   <%= paginate @requests %>
@@ -49,16 +55,16 @@
     <td><%= r.message %></td>
     <td>
       <% if r.done? %>
-          <%= link_to "Done", done_status_path(r), :method => :patch %>
+          <button class="tag"><%= link_to "Done", done_status_path(r), :method => :patch %></button>
       <% else %>
-          <%= link_to "To do", done_status_path(r), :method => :patch %>
+          <button class="tag"><%= link_to "To do", done_status_path(r), :method => :patch %></button>
       <% end %>
     </td>
     <td>
-      <%= link_to 'Edit', request_path(r) %>
-      <%= link_to 'Delete', request_path(r),
+      <button class="action"><%= link_to 'Edit', request_path(r) %></button>
+      <button class="action"><%= link_to 'Delete', request_path(r),
                             method: :delete,
-                            data: { confirm: 'Are you sure?' } %>
+                            data: { confirm: 'Are you sure?' } %></button>
       <%# <%= r.check_box :done %>
     </td>
   </tr>
