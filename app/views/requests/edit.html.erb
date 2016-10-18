@@ -1,45 +1,39 @@
 <h1>Edit Request</h1>
-<%= @request.errors.full_messages.join(', ') %>
 
+<%= form_for @request do |f| %>
+  <div class="row">
+    <div class="label_column"><%= f.label :name %></div>
+    <div class="content_column"><%= f.text_field :name %></div>
+  </div>
 
-<%# if the object you pass to the form_for is persisted (has an id in the DB)
-    then Rails will automatically make the form submit a PATCH request with
-    URL in this case question_path(@question) (same as show link with PATCH
-    request).
-    @question variable is persisted in this case so it will have a title and
-    a body so those will be pre-populated in their respective fields %>
-    <%= @request.errors.full_messages.join(', ' ) %>
-    <%= form_for @request do |f| %>
-      <div class="row">
-        <div class="label_column"><%= f.label :name %></div>
-        <div class="content_column"><%= f.text_field :name %></div>
-      </div>
+  <div class="row">
+    <div class="label_column"><%= f.label :email %></div>
+    <div class="content_column"><%= f.text_field :email %></div>
+  </div>
 
-      <div class="row">
-        <div class="label_column"><%= f.label :email %></div>
-        <div class="content_column"><%= f.text_field :email %></div>
-      </div>
+  <div class="row">
+    <div class="label_column"><label>Department</label></div>
+    <div class="content_column"><div class="radio-group">
+      <%= f.radio_button(:department, 'sales') %>
+      <%= f.label(:department_sales, 'Sales') %>
+      <%= f.radio_button(:department, 'marketing') %>
+      <%= f.label(:department_marketing, 'Marketing') %>
+      <%= f.radio_button(:department, 'technical') %>
+      <%= f.label(:department_technical, 'Technical') %>
+    </div></div>
+  </div>
 
-      <div class="row">
-        <div class="label_column"><label>Department</label></div>
-        <div class="content_column"><div class="radio-group">
-          <%= f.radio_button(:department, 'sales') %>
-          <%= f.label(:department_sales, 'Sales') %>
-          <%= f.radio_button(:department, 'marketing') %>
-          <%= f.label(:department_marketing, 'Marketing') %>
-          <%= f.radio_button(:department, 'technical') %>
-          <%= f.label(:department_technical, 'Technical') %>
-        </div></div>
-      </div>
+  <div class="row">
+    <div class="label_column"><%= f.label :message %></div>
+    <div class="content_column"><%= f.text_area :message %></div>
+  </div>
 
-      <div class="row">
-        <div class="label_column"><%= f.label :message %></div>
-        <div class="content_column"><%= f.text_area :message %></div>
-      </div>
+  <div class="row">
+    <div class="label_column">&nbsp;</div>
+    <div class="content_column">
+      <%= f.submit 'Edit Request' %>
+      <div class="clear"><%= @request.errors.full_messages.join(', ' ) %></div>
+    </div>
+  </div>
 
-      <div class="row">
-        <div class="label_column">&nbsp;</div>
-        <div class="content_column"><%= f.submit 'Send Request' %></div>
-      </div>
-
-    <% end %>
+<% end %>

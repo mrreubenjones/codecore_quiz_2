@@ -1,11 +1,13 @@
 <h1><%= @request.name %></h1>
 <dl>
   <dt>Email:</dt><dd><%= @request.email %></dd>
-  <dt>Department:</dt><dd><%= @request.department %></dd>
+  <dt>Department:</dt><dd><%= @request.department.titleize %></dd>
   <dt>Message:</dt><dd><%= @request.message %></dd>
 </dl>
 
-<%= link_to 'edit', edit_request_path(@request) %>
-<%= link_to 'delete', request_path(@request),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %>
+<div class="clear">
+  <%= link_to 'edit', edit_request_path(@request) %>
+  <%= link_to 'delete', request_path(@request),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+</div>

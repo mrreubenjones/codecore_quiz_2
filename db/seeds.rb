@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-departments = ["Marketing", "Sales", "Techical"]
+departments = ["Marketing", "Sales", "Technical"]
 status = [true, false]
 
 1000.times do

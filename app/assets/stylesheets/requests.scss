@@ -6,26 +6,68 @@ body {
   padding: 20px;
 }
 
+// Utility classes
+.clear {
+  clear: both;
+}
+
+.align-right {
+  text-align: right;
+}
+
+
+// Positioning the index elements
+.summary {
+  margin: -20px 0 80px 0;
+}
+
+.pagination_group {
+  margin: 20px 0;
+}
+
+// Styling the show request page
+dl * {
+  float: left;
+}
+
+dt {
+  clear: left;
+  width: 10%;
+  font-weight: bold;
+}
+
+
+
+// Layout styles for the new/edit form
 .row {
   clear: left;
 }
 
 .label_column {
   float: left;
-  width: 150px;
+  width: 10%;
 }
 
 .content_column {
   float: left;
 }
 
+
+// Tweaking the spacing around the radio buttons
+.radio-group {
+  margin-top: 1px;
+}
+
 .radio-group input {
   float: left;
   clear: left;
+  margin: 5px 3px 0 0;
 }
 
 .radio-group label {
   float: left;
   font-weight: normal;
+
 }
+
 

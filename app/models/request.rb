@@ -1,9 +1,12 @@
 class Request < ApplicationRecord
 
+  validates :name, presence: true
+  validates :email, presence: true,
+                    uniqueness: true
+
+
+
   def self.search(query)
-        #This first line will search BOTH columns, as it's a chain
-        #Product.where(['title ILIKE ?', "%#{query}%"]).where(['description ILIKE ?', "%#{query}%"])
-        #The following searches for EITHER or
         where(['name ILIKE ? OR email ILIKE ? OR department ILIKE ? OR message ILIKE ?', "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%"]).order("
         CASE
           WHEN name ILIKE \'%#{query}%\' THEN '1'
@@ -12,5 +15,9 @@ class Request < ApplicationRecord
           WHEN message ILIKE \'%#{query}%\' THEN '4'
         END")
     end
+
+    # def self.summary
+    #   where('department = Sales').count
+    # end
 
 end

@@ -7,8 +7,30 @@
   <% end %>
 </div>
 
-<%= paginate @requests %>
-<%= page_entries_info @requests %>
+
+<table class="summary">
+  <tr>
+    <th>Department</th>
+    <th>Support Requests</th>
+  </tr>
+  <tr>
+    <td>Sales</td>
+    <td class="align-right"><%= @sales %></td>
+  </tr>
+  <tr>
+    <td>Marketing</td>
+    <td class="align-right"><%= @marketing %></td>
+  </tr>
+  <tr>
+    <td>Technical</td>
+    <td class="align-right"><%= @technical %></td>
+  </tr>
+</table>
+
+<div class="pagination_group">
+  <%= paginate @requests %>
+  <%= page_entries_info @requests %>
+</div>
 
 <table>
   <tr>
@@ -29,7 +51,7 @@
       <% if r.done? %>
           <%= link_to "Done", done_status_path(r), :method => :patch %>
       <% else %>
-          <%= link_to "Not Done", done_status_path(r), :method => :patch %>
+          <%= link_to "To do", done_status_path(r), :method => :patch %>
       <% end %>
     </td>
     <td>
